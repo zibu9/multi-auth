@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'passwords' => 'users',
+    'passwords' => ['users', 'admins', 'eleves'],
 
     /*
     |--------------------------------------------------------------------------
@@ -155,6 +155,12 @@ return [
             'confirmPassword' => true,
             // 'window' => 0,
         ]),
+    ],
+
+    'models' => [
+        'user' => App\Models\User::class,
+        'admin' => App\Models\Admin::class,
+        'eleve' => App\Models\Eleve::class,
     ],
 
 ];
