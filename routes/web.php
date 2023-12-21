@@ -39,6 +39,11 @@ Route::prefix('eleve/')->name('eleve.')->group(function () {
     });
 });
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.index');
+Route::prefix('admin')->middleware(['admin'])->group(function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.index');
 });
+
+Route::prefix('eleve')->middleware(['eleve'])->group(function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('eleve.index');
+});
+
