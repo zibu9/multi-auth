@@ -37,3 +37,5 @@ Route::prefix('eleve/')->name('eleve.')->group(function () {
         Route::view('/register', '/eleve.auth.register')->name('register');
     });
 });
+
+
