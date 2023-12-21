@@ -1,5 +1,6 @@
 <?php
 
+use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin/')->name('admin.')->group(function () {
+
+    Route::middleware('guest:admin')->group(function () {
+
+        Route::view('/login', '/admin.auth.login')->name('login');
+
+        Route::view('/register', '/admin.auth.register')->name('register');
+    });
+});
+
+Route::prefix('eleve/')->name('eleve.')->group(function () {
+
+    Route::middleware('guest:eleve')->group(function () {
+
+        Route::view('/login', '/eleve.auth.login')->name('login');
+
+        Route::view('/register', '/eleve.auth.register')->name('register');
+    });
 });
