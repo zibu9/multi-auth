@@ -26,6 +26,7 @@ Route::prefix('admin/')->name('admin.')->group(function () {
         Route::view('/login', '/admin.auth.login')->name('login');
 
         Route::view('/register', '/admin.auth.register')->name('register');
+        Route::post('login', [AdminController::class, 'login']);
     });
 });
 
