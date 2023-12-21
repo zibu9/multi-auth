@@ -6,6 +6,17 @@
     <title>Admin Login</title>
 </head>
 <body>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <h2>Admin Login</h2>
 
     <form method="POST" action="{{ route('admin.login') }}">
