@@ -23,6 +23,14 @@ class EleveController extends Controller
         return redirect()->route('eleve.login')->with('error', 'Adresse email ou mot de passe incorrect.');
     }
 
+    public function loginView()
+    {
+        if (Auth::guard('eleve')->check()) {
+            return redirect('/eleve');
+        }
+        return view('eleve.auth.login');
+    }
+
     public function logout()
     {
         Auth::guard('eleve')->logout();
