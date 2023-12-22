@@ -31,4 +31,19 @@ class AdminController extends Controller
         return redirect('admin/');
     }
 
+    public function loginView()
+    {
+        if (Auth::guard('admin')->check()) {
+            return redirect('/admin');
+        }
+        return view('admin.auth.login');
+    }
+
+    public function registerView()
+    {
+        if (Auth::guard('admin')->check()) {
+            return redirect('/admin');
+        }
+        return view('admin.auth.register');
+    }
 }

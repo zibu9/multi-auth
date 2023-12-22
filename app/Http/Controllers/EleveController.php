@@ -38,4 +38,12 @@ class EleveController extends Controller
         return redirect('eleve/');
     }
 
+    public function registerView()
+    {
+        if (Auth::guard('eleve')->check()) {
+            return redirect('/eleve');
+        }
+        return view('eleve.auth.register');
+    }
+
 }

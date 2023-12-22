@@ -23,17 +23,20 @@ Route::get('/', function () {
 
 Route::prefix('admin/')->name('admin.')->group(function () {
 
-    Route::middleware('guest:admin')->group(function () {
-        Route::view('/register', '/admin.auth.register')->name('register');
-        Route::view('/login', '/admin.auth.login')->name('login');
+    //Route::middleware('guest:admin')->group(function () {
+        Route::get('/login', [AdminController::class, 'loginView'])->name('login');
+        Route::get('/register', [AdminController::class, 'registerView'])->name('register');
+        //Route::view('/register', '/admin.auth.register')->name('register');
+        //Route::view('/login', '/admin.auth.login')->name('login');
         Route::post('login', [AdminController::class, 'login'])->name('login');
-    });
+    //});
 });
 
 Route::prefix('eleve/')->name('eleve.')->group(function () {
 
    // Route::middleware('guest:eleve')->group(function () {
         Route::get('/login', [EleveController::class, 'loginView'])->name('login');
+        Route::get('/register', [EleveController::class, 'registerView'])->name('register');
         Route::post('login', [EleveController::class, 'login'])->name('login');
         Route::view('/register', '/eleve.auth.register')->name('register');
     //});
