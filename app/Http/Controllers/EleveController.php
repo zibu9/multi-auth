@@ -20,9 +20,14 @@ class EleveController extends Controller
         if (Auth::guard('eleve')->attempt($credentials)) {
             return redirect()->route('eleve.index');
         }
-
-        // Échec de l'authentification, rediriger avec un message d'erreur
         return redirect()->route('eleve.login')->with('error', 'Adresse email ou mot de passe incorrect.');
+    }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+
+        return redirect('admin/');
     }
 
 }

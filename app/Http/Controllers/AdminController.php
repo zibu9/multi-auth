@@ -21,8 +21,14 @@ class AdminController extends Controller
             return redirect()->route('admin.index');
         }
 
-        // Échec de l'authentification, rediriger avec un message d'erreur
         return redirect()->route('admin.login')->with('error', 'Adresse email ou mot de passe incorrect.');
+    }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+
+        return redirect('admin/');
     }
 
 }

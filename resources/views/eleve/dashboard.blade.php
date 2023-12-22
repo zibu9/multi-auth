@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>Dashboard</title>
 </head>
 <body>
     @if(session('success'))
@@ -17,20 +17,14 @@
             {{ session('error') }}
         </div>
     @endif
-    <h2>Welcome to Admin Dashboard</h2>
+    <h2>Welcome to Eleve Dashboard</h2>
 
-    @if(Auth::guard('admin')->check())
-        <p>Hello, {{ Auth::guard('admin')->user()->name }}!</p>
-        <p>Email: {{ Auth::guard('admin')->user()->email }}</p>
+    @if(Auth::guard('eleve')->check())
+        <p>Hello, {{ Auth::guard('eleve')->user()->name }}!</p>
+        <p>Email: {{ Auth::guard('eleve')->user()->email }}</p>
         <!-- Autres informations de l'utilisateur -->
     @else
         <p>User not authenticated</p>
-    @endif
-    @if(auth()->guard('admin')->check())
-        <form action="{{ route('admin.logout') }}" method="POST">
-            @csrf
-            <button type="submit">Logout (Admin)</button>
-        </form>
     @endif
 </body>
 </html>
