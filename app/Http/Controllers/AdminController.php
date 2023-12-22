@@ -12,6 +12,7 @@ class AdminController extends Controller
         //dd(Auth::guard('admin')->user());
         return view('admin.dashboard');
     }
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
