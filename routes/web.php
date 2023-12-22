@@ -38,13 +38,13 @@ Route::prefix('eleve/')->name('eleve.')->group(function () {
     });
 });
 
-Route::prefix('admin')->middleware(['admin'])->group(function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.index');
+Route::prefix('admin')->middleware(['admin'])->name('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('eleve')->middleware(['eleve'])->group(function () {
-    Route::get('dashboard', [EleveController::class, 'index'])->name('eleve.index');
+Route::prefix('eleve')->middleware(['eleve'])->name('eleve.')->group(function () {
+    Route::get('/', [EleveController::class, 'index'])->name('index');
     Route::post('/logout', [EleveController::class, 'logout'])->name('logout');
 });
 

@@ -25,9 +25,9 @@ class EleveController extends Controller
 
     public function logout()
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('eleve')->logout();
 
-        return redirect('admin/');
+        return redirect('eleve/');
     }
 
 }
