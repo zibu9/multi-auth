@@ -9,6 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        dd(Auth::guard('admin')->user());
         return view('admin.dashboard');
     }
     public function login(Request $request)

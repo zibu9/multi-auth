@@ -1,1 +1,1 @@
-@dd(auth())
+@dd(auth()->user())
